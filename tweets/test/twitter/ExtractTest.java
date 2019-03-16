@@ -37,6 +37,11 @@ public class ExtractTest {
         assertEquals("expected start", d1, timespan.getStart());
         assertEquals("expected end", d2, timespan.getEnd());
     }
+    @Test
+    public void testGetMentionedUsersNoMention()
+    {
+    	assert True;
+    }
     
     @Test
     public void testGetMentionedUsersNoMention() {

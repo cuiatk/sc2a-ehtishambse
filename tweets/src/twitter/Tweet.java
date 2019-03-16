@@ -1,99 +1,101 @@
-/* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
- * Redistribution of original or derived work requires permission of course staff.
- */
-package twitter;
+ Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
+ Redistribution of original or derived work requires permission of course staff.
+ 
+witer;
 
-import java.time.Instant;
+v.time.Instant;
 
-/**
- * This immutable datatype represents a tweet from Twitter.
- * 
- * DO NOT CHANGE THIS CLASS.
- */
-public class Tweet {
+mutable datatype represents a tweet from Twitter.
+ 
+ DO NOT CHANGE THIS CLASS.
 
-    private final long id;
-    private final String author;
-    private final String text;
-    private final Instant timestamp;
-    /* Rep invariant: 
-     *    author.length > 0
-     *    all characters in author are drawn from {A..Z, a..z, 0..9, _, -}
-     *    text.length <= 140
-     */
+ c Tweet {
+
+    p final long id;
+    p final String author;
+    p final String text;
+    p final Instant timestamp;
     
-    /**
-     * Make a Tweet with a known unique id.
-     * 
-     * @param id
-     *            unique identifier for the tweet, as assigned by Twitter.
-     * @param author
-     *            Twitter username who wrote this tweet.  
-     *            Required to be a Twitter username as defined by getAuthor() below.
-     * @param text
-     *            text of the tweet, at most 140 characters.
-     * @param timestamp
-     *            date/time when the tweet was sent.
-     */
-    public Tweet(final long id, final String author, final String text, final Instant timestamp) {
+     invariant: 
+         author.length > 0
+         all characters in author are drawn from {A..Z, a..z, 0..9, _, -}
+         text.length <= 140
+     
+    
+    
+     k  Tweet with a known unique id.
+      
+     m id
+                 unique identifier for the tweet, as assigned by Twitter.
+     m author
+                 Twitter username who wrote this tweet.  
+                 Required to be a Twitter username as defined by getAuthor() below.
+     
+    m text
+     text of the tweet, at most 140 characters.
+     
+     m timestamp
+                 date/time when the tweet was sent.
+     
+     Tweet(final long id, final String author, final String text, final Instant timestamp) {
         this.id = id;
         this.author = author;
         this.text = text;
         this.timestamp = timestamp;
     }
 
-    /**
-     * @return unique identifier of this tweet
-     */
+    
+     turn unique identifier of this tweet
+     
     public long getId() {
-        return id;
+        turn id;
     }
 
-    /**
-     * @return Twitter username who wrote this tweet.
-     *         A Twitter username is a nonempty sequence of letters (A-Z or
-     *         a-z), digits, underscore ("_"), or hyphen ("-").
-     *         Twitter usernames are case-insensitive, so "jbieber" and "JBieBer"
-     *         are equivalent.
-     */
+    
+     turn Twitter username who wrote this tweet.
+          A Twitter username is a nonempty sequence of letters (A-Z or
+          a-z), digits, underscore ("_"), or hyphen ("-").
+          Twitter usernames are case-insensitive, so "jbieber" and "JBieBer"
+          are equivalent.
+     
     public String getAuthor() {
-        return author;
+        turn author;
     }
 
-    /**
-     * @return text of this tweet, at most 140 characters
-     */
+    
+     turn text of this tweet, at most 140 characters
+     
     public String getText() {
-        return text;
+        turn text;
     }
 
-    /**
-     * @return date/time when this tweet was sent
-     */
+    
+     turn date/time when this tweet was sent
+     
     public Instant getTimestamp() {
-        return timestamp;
+        turn timestamp;
     }
 
-    /*
-     * @see Object.toString()
-     */
-    @Override public String toString() {
-        return "(" + this.getId()
+    
+     s Object.toString()
+    
+    de public String toString() {
+        turn "(" + this.getId()
                 + " " + this.getTimestamp().toString()
                 + " " + this.getAuthor()
                 + ") " + this.getText();
     }
 
-    /*
-     * @see Object.equals()
-     */
-    @Override public boolean equals(Object thatObject) {
-        if (!(thatObject instanceof Tweet)) {
+    
+     s Object.equals()
+     
+    de public boolean equals(Object thatObject) {
+         (!(thatObject instanceof Tweet)) {
             return false;
         }
 
-        Tweet that = (Tweet) thatObject;
-        return this.id == that.id;
+        wet that = (Tweet) thatObject;
+        turn this.id == that.id;
     }
 
     /*
