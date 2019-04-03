@@ -36,11 +36,11 @@ public class ExtractTest {
         
         assertEquals("expected start", d1, timespan.getStart());
         assertEquals("expected end", d2, timespan.getEnd());
-    }
+    } 
     @Test
-    public void testGetMentionedUsersNoMention()
-    {
-    	assert True;
+    public void testGetMentionedUsersMention() {
+    	assert true;
+       
     }
     
     @Test
@@ -49,9 +49,10 @@ public class ExtractTest {
         
         assertTrue("expected empty set", mentionedUsers.isEmpty());
     }
+    
 
     /*
-     * Warning: all the tests you write here must be runnable against any
+     * Warning: all the tests you write here muast be runnable against any
      * Extract class that follows the spec. It will be run against several staff
      * implementations of Extract, which will be done by overwriting
      * (temporarily) your version of Extract with the staff's version.

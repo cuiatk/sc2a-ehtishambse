@@ -25,6 +25,35 @@ public class Extract {
      */
     public static Timespan getTimespan(List<Tweet> tweets) {
         throw new RuntimeException("not implemented");
+        public static Instant getStart(List<Tweet> tweets) {
+            
+            if (tweets.isEmpty()){
+                return Instant.now();
+            }
+            Instant starttime = Instant.MAX;
+            for (Tweet tweet : tweets) {
+                if (tweet.getTimestamp().isBefore(starttime)) {
+                    starttime = tweet.getTimestamp();
+                }
+            }
+            return starttime;
+        }
+
+        public static Instant getEnd(List<Tweet> tweets) {
+         
+            if (tweets.isEmpty()){
+                return Instant.now();
+            }
+            Instant endtime = Instant.MIN;
+            for (Tweet tweet : tweets) {
+                if (tweet.getTimestamp().isAfter(endtime)) {
+                    endtime = tweet.getTimestamp();
+                }
+            }
+            return endtime;
+        }
+    
+
     }
 
     /**
@@ -44,6 +73,22 @@ public class Extract {
      */
     public static Set<String> getMentionedUsers(List<Tweet> tweets) {
         throw new RuntimeException("not implemented");
+        Pattern pattern = Pattern.compile("@(\\w+|\\W+)");
+        Set<String> mentionedusers = new HashSet<String>();
+        for (Tweet tweet : tweets) {
+            String substring = tweet.getText();
+            Matcher matcher = pattern.matcher(substring.toLowerCase());
+            List<String> mentionedusersLowerCase = new ArrayList<String>();
+            while(matcher.find()){
+                System.out.println(matcher.group(1));
+                mentionedusersLowerCase.add(matcher.group(1)); 
+                }
+            
+        return mentionedusers;
+        
+    }
+}
+
     }
 
 }

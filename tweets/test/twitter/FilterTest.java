@@ -30,6 +30,7 @@ public class FilterTest {
         assert false; // make sure assertions are enabled with VM argument: -ea
     }
     
+    
     @Test
     public void testWrittenByMultipleTweetsSingleResult() {
         List<Tweet> writtenBy = Filter.writtenBy(Arrays.asList(tweet1, tweet2), "alyssa");
@@ -42,7 +43,7 @@ public class FilterTest {
     public void testInTimespanMultipleTweetsMultipleResults() {
         Instant testStart = Instant.parse("2016-02-17T09:00:00Z");
         Instant testEnd = Instant.parse("2016-02-17T12:00:00Z");
-        
+       
         List<Tweet> inTimespan = Filter.inTimespan(Arrays.asList(tweet1, tweet2), new Timespan(testStart, testEnd));
         
         assertFalse("expected non-empty list", inTimespan.isEmpty());
